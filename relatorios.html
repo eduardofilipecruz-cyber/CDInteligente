@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Relatórios — Caderno Digital Inteligente</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body data-page="relatorios">
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="main-area">
+      <header class="navbar">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div class="menu-toggle" onclick="Utils.alternarSidebar()">☰</div>
+          <div class="navbar-title">📈 Relatórios</div>
+        </div>
+        <div class="navbar-actions"><div class="user-chip" id="userChip" onclick="location.href='perfil.html'"></div></div>
+      </header>
+
+      <main class="page-content fade-in">
+        <h2 style="margin-top:0;">Relatórios e exportação</h2>
+        <p style="color:var(--text-1);margin-top:-6px;">Visualize, filtre e exporte todas as atividades cadastradas.</p>
+
+        <div class="charts-grid">
+          <div class="card chart-card">
+            <h3>Evolução de cadastros por mês</h3>
+            <canvas id="graficoLinhaRelatorio"></canvas>
+          </div>
+          <div class="card chart-card">
+            <h3>Proporção por disciplina</h3>
+            <canvas id="graficoPizzaRelatorio"></canvas>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:20px;">
+          <div class="export-bar">
+            <button class="btn btn-ghost" id="btnExportarCSV">⬇️ Exportar CSV</button>
+            <button class="btn btn-ghost" id="btnExportarPDF">🖨️ Exportar PDF</button>
+          </div>
+
+          <div class="toolbar">
+            <input type="text" id="rBusca" placeholder="🔍 Pesquisar..." style="flex:1;min-width:220px;">
+            <select id="rDisciplina"><option value="">Todas as disciplinas</option></select>
+            <select id="rOrdenar">
+              <option value="recentes">Mais recentes</option>
+              <option value="antigas">Mais antigas</option>
+              <option value="titulo">Título (A-Z)</option>
+            </select>
+          </div>
+
+          <div style="overflow-x:auto;">
+            <table>
+              <thead><tr><th>Disciplina</th><th>Título</th><th>Professor</th><th>Data</th><th>Cadastrado em</th></tr></thead>
+              <tbody id="corpoTabelaRelatorios"></tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+  <script src="js/database.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/graficos.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

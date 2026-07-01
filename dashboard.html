@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Dashboard — Caderno Digital Inteligente</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body data-page="dashboard">
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar"></aside>
+
+    <div class="main-area">
+      <header class="navbar">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div class="menu-toggle" onclick="Utils.alternarSidebar()">☰</div>
+          <div class="navbar-title">📊 Dashboard</div>
+        </div>
+        <div class="navbar-actions">
+          <div class="user-chip" id="userChip" onclick="location.href='perfil.html'"></div>
+        </div>
+      </header>
+
+      <main class="page-content fade-in">
+        <h2 style="margin-top:0;">Visão geral do sistema</h2>
+        <p style="color:var(--text-1);margin-top:-6px;">Resumo das suas disciplinas, atividades e progresso.</p>
+
+        <div class="stats-grid stagger" id="statsGrid"></div>
+
+        <div class="charts-grid">
+          <div class="card chart-card">
+            <h3>Atividades por disciplina</h3>
+            <canvas id="graficoBarras"></canvas>
+          </div>
+          <div class="card chart-card">
+            <h3>Distribuição geral (usuários x atividades)</h3>
+            <canvas id="graficoDoughnut"></canvas>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:20px;">
+          <h3 style="margin-top:0;">Atividades recentes</h3>
+          <div class="activity-list" id="atividadesRecentes"></div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+  <script src="js/database.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/graficos.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

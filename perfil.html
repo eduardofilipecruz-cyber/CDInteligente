@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Perfil — Caderno Digital Inteligente</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body data-page="perfil">
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="main-area">
+      <header class="navbar">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div class="menu-toggle" onclick="Utils.alternarSidebar()">☰</div>
+          <div class="navbar-title">👤 Perfil</div>
+        </div>
+        <div class="navbar-actions"><div class="user-chip" id="userChip" onclick="location.href='perfil.html'"></div></div>
+      </header>
+
+      <main class="page-content fade-in">
+        <div class="card">
+          <div class="profile-header">
+            <div class="profile-avatar" id="perfilAvatar"></div>
+            <div class="profile-info">
+              <h2 id="perfilNome"></h2>
+              <p id="perfilUsuario"></p>
+            </div>
+          </div>
+
+          <div class="stats-grid">
+            <div class="card">
+              <p class="card-title">Cadastrado em</p>
+              <p class="card-value" style="font-size:18px;" id="perfilDataCadastro"></p>
+            </div>
+            <div class="card">
+              <p class="card-title">Atividades cadastradas</p>
+              <p class="card-value" id="perfilTotalAtividades"></p>
+            </div>
+          </div>
+
+          <button class="btn btn-primary" id="btnEditarPerfil" style="margin-top:10px;">✏️ Editar perfil</button>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="js/database.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

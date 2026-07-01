@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Banco de Dados — Caderno Digital Inteligente</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body data-page="banco">
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="main-area">
+      <header class="navbar">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div class="menu-toggle" onclick="Utils.alternarSidebar()">☰</div>
+          <div class="navbar-title">🗄️ Banco de Dados</div>
+        </div>
+        <div class="navbar-actions"><div class="user-chip" id="userChip" onclick="location.href='perfil.html'"></div></div>
+      </header>
+
+      <main class="page-content fade-in">
+        <h2 style="margin-top:0;">Fundamentos de Banco de Dados</h2>
+        <p style="color:var(--text-1);margin-top:-6px;">Conceitos essenciais de SQL e modelagem de dados.</p>
+
+        <div class="lesson-block">
+          <h3>SQL</h3>
+          <div class="box box-explicacao"><div class="box-label">Explicação</div>SQL (Structured Query Language) é a linguagem padrão para consultar e manipular dados em bancos relacionais.</div>
+          <div class="box box-exemplo"><div class="box-label">Exemplo</div><pre>SELECT * FROM alunos;</pre></div>
+          <div class="box box-curiosidade"><div class="box-label">Curiosidade</div>SQL surgiu na IBM nos anos 1970 e até hoje é o padrão mais usado em bancos relacionais.</div>
+        </div>
+
+        <div class="lesson-block">
+          <h3>INSERT</h3>
+          <div class="box box-explicacao"><div class="box-label">Explicação</div>O comando <code>INSERT</code> adiciona novos registros em uma tabela.</div>
+          <div class="box box-exemplo"><div class="box-label">Exemplo</div><pre>INSERT INTO alunos (nome, idade)
+VALUES ('João', 20);</pre></div>
+          <div class="box box-curiosidade"><div class="box-label">Curiosidade</div>É possível inserir vários registros em um único comando, separando os valores por vírgula.</div>
+        </div>
+
+        <div class="lesson-block">
+          <h3>SELECT</h3>
+          <div class="box box-explicacao"><div class="box-label">Explicação</div><code>SELECT</code> é usado para consultar dados, podendo filtrar com <code>WHERE</code> e ordenar com <code>ORDER BY</code>.</div>
+          <div class="box box-exemplo"><div class="box-label">Exemplo</div><pre>SELECT nome, idade FROM alunos
+WHERE idade > 18
+ORDER BY nome;</pre></div>
+          <div class="box box-curiosidade"><div class="box-label">Curiosidade</div>O asterisco <code>*</code> seleciona todas as colunas, mas em produção é recomendado especificar apenas as necessárias, por desempenho.</div>
+        </div>
+
+        <div class="lesson-block">
+          <h3>UPDATE</h3>
+          <div class="box box-explicacao"><div class="box-label">Explicação</div><code>UPDATE</code> modifica registros existentes. É essencial usar <code>WHERE</code> para não alterar a tabela inteira.</div>
+          <div class="box box-exemplo"><div class="box-label">Exemplo</div><pre>UPDATE alunos
+SET idade = 21
+WHERE id = 5;</pre></div>
+          <div class="box box-curiosidade"><div class="box-label">Curiosidade</div>Esquecer o <code>WHERE</code> em um <code>UPDATE</code> é um dos erros mais perigosos em produção: atualiza todas as linhas.</div>
+        </div>
+
+        <div class="lesson-block">
+          <h3>DELETE</h3>
+          <div class="box box-explicacao"><div class="box-label">Explicação</div><code>DELETE</code> remove registros de uma tabela, também exigindo uma condição segura com <code>WHERE</code>.</div>
+          <div class="box box-exemplo"><div class="box-label">Exemplo</div><pre>DELETE FROM alunos
+WHERE id = 5;</pre></div>
+          <div class="box box-curiosidade"><div class="box-label">Curiosidade</div>Muitos sistemas preferem "exclusão lógica" (marcar como inativo) em vez de excluir o dado de fato.</div>
+        </div>
+
+        <div class="lesson-block">
+          <h3>Modelagem</h3>
+          <div class="box box-explicacao"><div class="box-label">Explicação</div>Modelar um banco é planejar entidades, atributos e relacionamentos antes de criar as tabelas, geralmente usando diagramas ER.</div>
+          <div class="box box-exemplo"><div class="box-label">Exemplo</div><pre>Aluno (id, nome, turma_id)
+Turma (id, nome)
+-- Aluno pertence a uma Turma</pre></div>
+          <div class="box box-curiosidade"><div class="box-label">Curiosidade</div>Boa modelagem evita redundância de dados, processo conhecido como normalização.</div>
+        </div>
+
+        <div class="lesson-block">
+          <h3>SQLite</h3>
+          <div class="box box-explicacao"><div class="box-label">Explicação</div>SQLite é um banco de dados leve, sem servidor, armazenado em um único arquivo — muito usado em apps e protótipos.</div>
+          <div class="box box-exemplo"><div class="box-label">Exemplo</div><pre>CREATE TABLE alunos (
+  id INTEGER PRIMARY KEY,
+  nome TEXT NOT NULL
+);</pre></div>
+          <div class="box box-curiosidade"><div class="box-label">Curiosidade</div>O SQLite está embutido em praticamente todo smartphone, sendo um dos bancos de dados mais usados do mundo.</div>
+        </div>
+
+        <div class="lesson-block">
+          <h3>Relacionamentos</h3>
+          <div class="box box-explicacao"><div class="box-label">Explicação</div>Tabelas se relacionam por chaves estrangeiras (foreign keys), formando vínculos como 1:1, 1:N e N:N.</div>
+          <div class="box box-exemplo"><div class="box-label">Exemplo</div><pre>CREATE TABLE matriculas (
+  aluno_id INTEGER,
+  turma_id INTEGER,
+  FOREIGN KEY(aluno_id) REFERENCES alunos(id),
+  FOREIGN KEY(turma_id) REFERENCES turmas(id)
+);</pre></div>
+          <div class="box box-curiosidade"><div class="box-label">Curiosidade</div>Relacionamentos N:N geralmente exigem uma tabela intermediária, chamada tabela associativa.</div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="js/database.js"></script>
+  <script src="js/utils.js"></script>
+  <script>Utils.exigirLogin(); Utils.montarShell('banco');</script>
+</body>
+</html>

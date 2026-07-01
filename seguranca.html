@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Segurança — Caderno Digital Inteligente</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body data-page="seguranca">
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="main-area">
+      <header class="navbar">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div class="menu-toggle" onclick="Utils.alternarSidebar()">☰</div>
+          <div class="navbar-title">🔐 Segurança</div>
+        </div>
+        <div class="navbar-actions"><div class="user-chip" id="userChip" onclick="location.href='perfil.html'"></div></div>
+      </header>
+
+      <main class="page-content fade-in">
+        <h2 style="margin-top:0;">Fundamentos de Segurança</h2>
+        <p style="color:var(--text-1);margin-top:-6px;">Boas práticas para proteger sistemas, dados e usuários.</p>
+
+        <div class="lesson-block">
+          <h3>Login</h3>
+          <div class="box box-explicacao"><div class="box-label">Explicação</div>O login é o processo de identificar e autorizar um usuário, normalmente por usuário e senha, antes de liberar o acesso ao sistema.</div>
+          <div class="box box-exemplo"><div class="box-label">Exemplo</div><pre>Usuário digita usuário e senha
+Sistema verifica se os dados existem e coincidem
+Se sim -> acesso liberado
+Se não -> mensagem de erro</pre></div>
+          <div class="box box-curiosidade"><div class="box-label">Curiosidade</div>Sistemas modernos frequentemente combinam login com autenticação em duas etapas (2FA) para reforçar a segurança.</div>
+        </div>
+
+        <div class="lesson-block">
+          <h3>Senhas</h3>
+          <div class="box box-explicacao"><div class="box-label">Explicação</div>Senhas fortes combinam letras, números e símbolos, evitando dados óbvios como datas de nascimento.</div>
+          <div class="box box-exemplo"><div class="box-label">Exemplo</div><pre>Fraca:  123456
+Forte:  Tr0p1c0!2026#</pre></div>
+          <div class="box box-curiosidade"><div class="box-label">Curiosidade</div>Em sistemas reais, senhas nunca devem ser armazenadas em texto puro — devem passar por funções de hash, como bcrypt.</div>
+        </div>
+
+        <div class="lesson-block">
+          <h3>Validação</h3>
+          <div class="box box-explicacao"><div class="box-label">Explicação</div>Validar dados de entrada evita erros e ataques, garantindo que apenas informações esperadas sejam processadas.</div>
+          <div class="box box-exemplo"><div class="box-label">Exemplo</div><pre>if (usuario === "" || senha === "") {
+  mostrarErro("Preencha todos os campos");
+}</pre></div>
+          <div class="box box-curiosidade"><div class="box-label">Curiosidade</div>A validação deve ocorrer tanto no front-end (experiência do usuário) quanto no back-end (segurança real).</div>
+        </div>
+
+        <div class="lesson-block">
+          <h3>Proteção de dados</h3>
+          <div class="box box-explicacao"><div class="box-label">Explicação</div>Proteger dados envolve controlar quem acessa quais informações e garantir que dados sensíveis não sejam expostos.</div>
+          <div class="box box-exemplo"><div class="box-label">Exemplo</div><pre>Mostrar apenas: "Olá, João"
+Nunca expor: senha, token interno, dados de outros usuários</pre></div>
+          <div class="box box-curiosidade"><div class="box-label">Curiosidade</div>Leis como a LGPD (Brasil) e a GDPR (Europa) exigem que empresas protejam formalmente os dados pessoais dos usuários.</div>
+        </div>
+
+        <div class="lesson-block">
+          <h3>Boas práticas</h3>
+          <div class="box box-explicacao"><div class="box-label">Explicação</div>Boas práticas de segurança incluem nunca confiar apenas no front-end, limitar tentativas de login e manter dependências atualizadas.</div>
+          <div class="box box-exemplo"><div class="box-label">Exemplo</div><pre>- Limitar tentativas de login
+- Expirar sessões inativas
+- Nunca expor senhas em logs</pre></div>
+          <div class="box box-curiosidade"><div class="box-label">Curiosidade</div>A maioria dos ataques bem-sucedidos explora falhas simples e já conhecidas, não técnicas avançadas.</div>
+        </div>
+
+        <div class="lesson-block">
+          <h3>Autenticação</h3>
+          <div class="box box-explicacao"><div class="box-label">Explicação</div>Autenticação confirma a identidade do usuário; autorização define o que ele pode fazer depois de autenticado.</div>
+          <div class="box box-exemplo"><div class="box-label">Exemplo</div><pre>Autenticação: "Você é realmente o usuário João?"
+Autorização: "João pode editar este relatório?"</pre></div>
+          <div class="box box-curiosidade"><div class="box-label">Curiosidade</div>Autenticação e autorização são conceitos diferentes, mas frequentemente confundidos até por desenvolvedores experientes.</div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="js/database.js"></script>
+  <script src="js/utils.js"></script>
+  <script>Utils.exigirLogin(); Utils.montarShell('seguranca');</script>
+</body>
+</html>

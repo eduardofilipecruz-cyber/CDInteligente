@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Entrar — Caderno Digital Inteligente</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/login.css">
+</head>
+<body class="auth-body">
+  <div class="auth-wrap fade-up">
+    <div class="auth-card glass">
+      <div class="auth-logo">
+        <div class="mark">CDI</div>
+        <h1>Caderno Digital <span style="color:var(--accent-2);">Inteligente</span></h1>
+        <p>Entre para acessar suas disciplinas e atividades</p>
+      </div>
+
+      <div class="auth-error" id="erroLogin"></div>
+
+      <form id="formLogin">
+        <div class="field">
+          <label for="usuario">Usuário</label>
+          <input type="text" id="usuario" placeholder="Digite seu usuário" autocomplete="username" required>
+        </div>
+        <div class="field pass-field">
+          <label for="senha">Senha</label>
+          <input type="password" id="senha" placeholder="Digite sua senha" autocomplete="current-password" required>
+          <span class="pass-toggle" id="togglePass">👁️ Mostrar</span>
+        </div>
+
+        <div class="auth-actions">
+          <button type="submit" class="btn btn-primary" id="btnEntrar">Entrar</button>
+          <button type="button" class="btn btn-ghost" onclick="location.href='cadastro.html'">Criar conta</button>
+        </div>
+      </form>
+
+      <div class="auth-switch">Ainda não tem conta? <a href="cadastro.html">Cadastre-se aqui</a></div>
+    </div>
+  </div>
+
+  <script src="js/database.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

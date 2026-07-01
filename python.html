@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Python — Caderno Digital Inteligente</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body data-page="python">
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="main-area">
+      <header class="navbar">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div class="menu-toggle" onclick="Utils.alternarSidebar()">☰</div>
+          <div class="navbar-title">🐍 Python</div>
+        </div>
+        <div class="navbar-actions"><div class="user-chip" id="userChip" onclick="location.href='perfil.html'"></div></div>
+      </header>
+
+      <main class="page-content fade-in">
+        <h2 style="margin-top:0;">Fundamentos de Python</h2>
+        <p style="color:var(--text-1);margin-top:-6px;">Conceitos essenciais para começar a programar em Python.</p>
+
+        <div class="lesson-block">
+          <h3>Variáveis</h3>
+          <div class="box box-explicacao"><div class="box-label">Explicação</div>Variáveis são espaços na memória usados para armazenar valores, como números, textos ou listas. Em Python não é necessário declarar o tipo: ele é definido automaticamente.</div>
+          <div class="box box-exemplo"><div class="box-label">Exemplo</div><pre>nome = "Maria"
+idade = 21
+altura = 1.68</pre></div>
+          <div class="box box-curiosidade"><div class="box-label">Curiosidade</div>Python usa tipagem dinâmica: a mesma variável pode receber um número e, depois, um texto, sem gerar erro.</div>
+        </div>
+
+        <div class="lesson-block">
+          <h3>If</h3>
+          <div class="box box-explicacao"><div class="box-label">Explicação</div>A estrutura <code>if</code> executa um bloco de código apenas quando uma condição é verdadeira.</div>
+          <div class="box box-exemplo"><div class="box-label">Exemplo</div><pre>idade = 18
+if idade >= 18:
+    print("Maior de idade")</pre></div>
+          <div class="box box-curiosidade"><div class="box-label">Curiosidade</div>Python não usa chaves {} nem parênteses obrigatórios: a indentação define o bloco de código.</div>
+        </div>
+
+        <div class="lesson-block">
+          <h3>Else</h3>
+          <div class="box box-explicacao"><div class="box-label">Explicação</div><code>else</code> define o que acontece quando a condição do <code>if</code> é falsa. Pode ser combinado com <code>elif</code> para múltiplas condições.</div>
+          <div class="box box-exemplo"><div class="box-label">Exemplo</div><pre>nota = 6
+if nota >= 7:
+    print("Aprovado")
+elif nota >= 5:
+    print("Recuperação")
+else:
+    print("Reprovado")</pre></div>
+          <div class="box box-curiosidade"><div class="box-label">Curiosidade</div>Python não possui <code>switch/case</code> tradicional; a partir da versão 3.10, existe a alternativa <code>match/case</code>.</div>
+        </div>
+
+        <div class="lesson-block">
+          <h3>For</h3>
+          <div class="box box-explicacao"><div class="box-label">Explicação</div>O laço <code>for</code> percorre elementos de uma sequência (lista, string, intervalo) repetindo um bloco de código.</div>
+          <div class="box box-exemplo"><div class="box-label">Exemplo</div><pre>for numero in range(5):
+    print(numero)</pre></div>
+          <div class="box box-curiosidade"><div class="box-label">Curiosidade</div>A função <code>range()</code> não cria toda a lista em memória de uma vez — ela gera os números sob demanda.</div>
+        </div>
+
+        <div class="lesson-block">
+          <h3>While</h3>
+          <div class="box box-explicacao"><div class="box-label">Explicação</div>O laço <code>while</code> repete um bloco enquanto uma condição permanecer verdadeira.</div>
+          <div class="box box-exemplo"><div class="box-label">Exemplo</div><pre>contador = 0
+while contador < 3:
+    print(contador)
+    contador += 1</pre></div>
+          <div class="box box-curiosidade"><div class="box-label">Curiosidade</div>Esquecer de atualizar a variável de controle é a causa mais comum de loops infinitos.</div>
+        </div>
+
+        <div class="lesson-block">
+          <h3>Funções</h3>
+          <div class="box box-explicacao"><div class="box-label">Explicação</div>Funções agrupam blocos de código reutilizáveis, definidas com <code>def</code>, podendo receber parâmetros e retornar valores.</div>
+          <div class="box box-exemplo"><div class="box-label">Exemplo</div><pre>def somar(a, b):
+    return a + b
+
+resultado = somar(2, 3)</pre></div>
+          <div class="box box-curiosidade"><div class="box-label">Curiosidade</div>Funções em Python podem retornar múltiplos valores ao mesmo tempo, como em uma tupla: <code>return a, b</code>.</div>
+        </div>
+
+        <div class="lesson-block">
+          <h3>Listas</h3>
+          <div class="box box-explicacao"><div class="box-label">Explicação</div>Listas armazenam coleções ordenadas de itens, que podem ser de tipos diferentes e modificadas após a criação.</div>
+          <div class="box box-exemplo"><div class="box-label">Exemplo</div><pre>frutas = ["maçã", "banana", "uva"]
+frutas.append("pera")
+print(frutas[0])</pre></div>
+          <div class="box box-curiosidade"><div class="box-label">Curiosidade</div>Listas em Python podem misturar tipos na mesma estrutura: <code>[1, "texto", 3.5, True]</code> é válido.</div>
+        </div>
+
+        <div class="lesson-block">
+          <h3>Tratamento de erros</h3>
+          <div class="box box-explicacao"><div class="box-label">Explicação</div>Blocos <code>try/except</code> capturam erros em tempo de execução, evitando que o programa pare inesperadamente.</div>
+          <div class="box box-exemplo"><div class="box-label">Exemplo</div><pre>try:
+    numero = int(input("Digite um número: "))
+except ValueError:
+    print("Entrada inválida")</pre></div>
+          <div class="box box-curiosidade"><div class="box-label">Curiosidade</div>É possível usar <code>finally</code> para executar código independentemente de ocorrer erro ou não.</div>
+        </div>
+
+        <div class="lesson-block">
+          <h3>Modularização</h3>
+          <div class="box box-explicacao"><div class="box-label">Explicação</div>Modularizar é dividir o código em arquivos e funções menores e reutilizáveis, usando <code>import</code> para conectá-los.</div>
+          <div class="box box-exemplo"><div class="box-label">Exemplo</div><pre># arquivo: utilidades.py
+def saudacao(nome):
+    return f"Olá, {nome}!"
+
+# arquivo: principal.py
+from utilidades import saudacao
+print(saudacao("Ana"))</pre></div>
+          <div class="box box-curiosidade"><div class="box-label">Curiosidade</div>Cada arquivo Python é, por padrão, um módulo independente que pode ser importado em outro.</div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="js/database.js"></script>
+  <script src="js/utils.js"></script>
+  <script>Utils.exigirLogin(); Utils.montarShell('python');</script>
+</body>
+</html>

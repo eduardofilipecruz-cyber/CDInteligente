@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Caderno Digital Inteligente</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/database.js"></script>
+</head>
+<body style="display:flex;align-items:center;justify-content:center;min-height:100vh;">
+  <div style="text-align:center;">
+    <div class="loader" style="width:30px;height:30px;border-width:3px;"></div>
+    <p style="color:var(--text-1);margin-top:14px;">Carregando Caderno Digital Inteligente...</p>
+  </div>
+  <script>
+    setTimeout(() => {
+      window.location.href = DB.usuarioLogado() ? 'dashboard.html' : 'login.html';
+    }, 350);
+  </script>
+</body>
+</html>

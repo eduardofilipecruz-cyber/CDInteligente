@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Aulas Práticas — Caderno Digital Inteligente</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body data-page="praticas">
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="main-area">
+      <header class="navbar">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div class="menu-toggle" onclick="Utils.alternarSidebar()">☰</div>
+          <div class="navbar-title">📝 Aulas Práticas</div>
+        </div>
+        <div class="navbar-actions"><div class="user-chip" id="userChip" onclick="location.href='perfil.html'"></div></div>
+      </header>
+
+      <main class="page-content fade-in">
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:12px;">
+          <div>
+            <h2 style="margin:0;">Gerenciar atividades</h2>
+            <p style="color:var(--text-1);margin:4px 0 0;">Cadastre, edite e organize suas aulas práticas.</p>
+          </div>
+          <button class="btn btn-primary" id="btnNovaAtividade">➕ Nova atividade</button>
+        </div>
+
+        <div class="card" style="margin-top:20px;">
+          <div class="toolbar">
+            <input type="text" id="inputBusca" placeholder="🔍 Pesquisar por título, disciplina ou professor..." style="flex:1;min-width:240px;">
+            <select id="selectDisciplinaFiltro"><option value="">Todas as disciplinas</option></select>
+            <select id="selectOrdenar">
+              <option value="recentes">Mais recentes</option>
+              <option value="antigas">Mais antigas</option>
+              <option value="titulo">Título (A-Z)</option>
+              <option value="disciplina">Disciplina (A-Z)</option>
+            </select>
+          </div>
+
+          <div style="overflow-x:auto;">
+            <table>
+              <thead>
+                <tr><th>Disciplina</th><th>Título</th><th>Professor</th><th>Data</th><th>Cadastrado em</th><th>Ações</th></tr>
+              </thead>
+              <tbody id="corpoTabelaPraticas"></tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="js/database.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

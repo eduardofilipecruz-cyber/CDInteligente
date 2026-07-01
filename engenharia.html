@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Engenharia de Software — Caderno Digital Inteligente</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body data-page="engenharia">
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="main-area">
+      <header class="navbar">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div class="menu-toggle" onclick="Utils.alternarSidebar()">☰</div>
+          <div class="navbar-title">🧩 Engenharia de Software</div>
+        </div>
+        <div class="navbar-actions"><div class="user-chip" id="userChip" onclick="location.href='perfil.html'"></div></div>
+      </header>
+
+      <main class="page-content fade-in">
+        <h2 style="margin-top:0;">Fundamentos de Engenharia de Software</h2>
+        <p style="color:var(--text-1);margin-top:-6px;">Como planejar e organizar um projeto de software com qualidade.</p>
+
+        <div class="lesson-block">
+          <h3>Planejamento</h3>
+          <div class="box box-explicacao"><div class="box-label">Explicação</div>Planejamento define escopo, prazos e recursos antes de iniciar o desenvolvimento, reduzindo riscos e retrabalho.</div>
+          <div class="box box-exemplo"><div class="box-label">Exemplo</div><pre>1. Definir objetivo do projeto
+2. Listar entregas
+3. Estimar prazos
+4. Definir responsáveis</pre></div>
+          <div class="box box-curiosidade"><div class="box-label">Curiosidade</div>Metodologias ágeis, como Scrum, planejam em ciclos curtos chamados sprints, em vez de um plano único e fixo.</div>
+        </div>
+
+        <div class="lesson-block">
+          <h3>Levantamento de requisitos</h3>
+          <div class="box box-explicacao"><div class="box-label">Explicação</div>É o processo de identificar o que o sistema precisa fazer (requisitos funcionais) e como deve se comportar (requisitos não funcionais).</div>
+          <div class="box box-exemplo"><div class="box-label">Exemplo</div><pre>Requisito funcional: "O sistema deve permitir login."
+Requisito não funcional: "O login deve responder em até 1 segundo."</pre></div>
+          <div class="box box-curiosidade"><div class="box-label">Curiosidade</div>Requisitos mal levantados são apontados como uma das principais causas de falha em projetos de software.</div>
+        </div>
+
+        <div class="lesson-block">
+          <h3>Diagrama simples</h3>
+          <div class="box box-explicacao"><div class="box-label">Explicação</div>Diagramas ajudam a visualizar fluxos e estruturas do sistema antes de codificar, como um diagrama de fluxo de login.</div>
+          <div class="box box-exemplo"><div class="box-label">Exemplo</div><pre>[Usuário] -> [Tela de Login] -> [Validação] -> [Dashboard]
+                                     |
+                                 [Erro] -> [Mensagem de erro]</pre></div>
+          <div class="box box-curiosidade"><div class="box-label">Curiosidade</div>A notação UML é um padrão internacional para representar diagramas de software de forma universal.</div>
+        </div>
+
+        <div class="lesson-block">
+          <h3>Organização do projeto</h3>
+          <div class="box box-explicacao"><div class="box-label">Explicação</div>Organizar pastas, arquivos e nomes de forma clara facilita a manutenção e o trabalho em equipe.</div>
+          <div class="box box-exemplo"><div class="box-label">Exemplo</div><pre>/css   -> estilos
+/js    -> lógica
+/img   -> imagens
+index.html -> entrada do sistema</pre></div>
+          <div class="box box-curiosidade"><div class="box-label">Curiosidade</div>Muitas empresas adotam padrões de pastas (como MVC) para que qualquer desenvolvedor entenda o projeto rapidamente.</div>
+        </div>
+
+        <div class="lesson-block">
+          <h3>Boas práticas</h3>
+          <div class="box box-explicacao"><div class="box-label">Explicação</div>Boas práticas incluem nomear variáveis claramente, evitar duplicação de código e seguir um padrão de formatação consistente.</div>
+          <div class="box box-exemplo"><div class="box-label">Exemplo</div><pre>// Ruim
+let x = 10;
+
+// Bom
+let quantidadeDeAlunos = 10;</pre></div>
+          <div class="box box-curiosidade"><div class="box-label">Curiosidade</div>O princípio DRY ("Don't Repeat Yourself") é uma das regras mais citadas em engenharia de software.</div>
+        </div>
+
+        <div class="lesson-block">
+          <h3>Documentação</h3>
+          <div class="box box-explicacao"><div class="box-label">Explicação</div>Documentar é registrar decisões, funcionamento e instruções de uso do sistema, facilitando manutenção futura.</div>
+          <div class="box box-exemplo"><div class="box-label">Exemplo</div><pre># Como instalar
+1. Baixe o projeto
+2. Abra o index.html no navegador</pre></div>
+          <div class="box box-curiosidade"><div class="box-label">Curiosidade</div>Um README bem escrito pode reduzir drasticamente o tempo que um novo desenvolvedor leva para entender um projeto.</div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="js/database.js"></script>
+  <script src="js/utils.js"></script>
+  <script>Utils.exigirLogin(); Utils.montarShell('engenharia');</script>
+</body>
+</html>
